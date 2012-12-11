@@ -6,5 +6,6 @@ void setup(){
 }
 
 void draw(){
-		
+		nave.update();
+		nave.draw();
 }
