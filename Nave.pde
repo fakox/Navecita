@@ -1,6 +1,6 @@
 class Nave {
 	PVector position;
-	//void setup(){
+	void setup(){
 		position = new PVector(width/2, height/2);
 	}//
 	void setup(float x, float y){

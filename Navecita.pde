@@ -12,5 +12,3 @@ void draw(){
 	background(255);
 	nave.draw();
 }
-
-
