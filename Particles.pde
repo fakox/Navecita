@@ -46,7 +46,6 @@ class ParticleGenerador {
 		Iterator<Particle> i = particles.iterator();
 		while (i.hasNext()) {
 		    Particle p = i.next();
-		    // Do something
 			p.update();
 			if (p.shouldDie()){
 				i.remove();
