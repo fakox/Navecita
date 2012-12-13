@@ -1,21 +1,22 @@
-Class Ball {
-	PVector position;
+Class Ball
+	PVector ballposition;
+	float mx= mouseX;
+	float my= mouseY;
 	void setup(){
-		position = new PVector(width/2, height/2);
+		ballposition = new PVector(mx,my);
 	}
 	void setup(float x, float y){
-		position = new PVector(x, y);
+		ballposition = new PVector(x, y);
 	}
 	void update(){
-		position.x=mouseX;
-		position.y=mouseY;
+		ballposition.y -=1;
 	}
 	void draw (){
-		float w = 15;
-		float h = 20;
-		float x = position.x;
-		float y = position.y;
-		triangle(x, y, x+w, y+h, x-w, y+h);
+		float w = 2;
+		float h = 3;
+		float x = ballposition.x;
+		float y = ballposition.y;
+		line(x, y, x+w, y+h);
 		noCursor();
 	}
 };
