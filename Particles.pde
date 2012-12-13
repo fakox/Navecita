@@ -1,6 +1,9 @@
-class Particula {
+import java.util.ArrayList;
+
+class Particle {
 	PVector p;
-	void setup (float x, float y) {
+	
+	Particle (float x, float y) {
 		p = new PVector(x, y);
 	}
 	void update () {
@@ -9,19 +12,53 @@ class Particula {
 	void draw (){
 		point(p.x, p.y);
 	}
+	
+	boolean shouldDie () {
+		return false;
+	}
 };
 
-class ParticulaConVelocidad extends Particula {
+class ParticleWithSpeed extends Particle {
 	PVector v;
-	void setup (float x, float y) {
-		super.setup(x, y);
-		v = new PVector(0.1, 0.0);
+	ParticleWithSpeed (float x, float y) {
+		super(x, y);
+		v = new PVector(0.0, -5.0);
 	}
 	void update () {
 		super.update();
 		p.add(v);
 	}
 	void draw (){
-		point(p.x, p.y);
+		line(p.x, p.y, p.x+v.x, p.y+v.y);
+	}
+	
+	boolean shouldDie () {
+		return p.y<100;
+	}
+};
+
+class ParticleGenerador {
+	ArrayList<Particle> particles;
+	ParticleGenerador () {
+		particles = new ArrayList<Particle>();
+	}
+	void update () {
+		Iterator<Particle> i = particles.iterator();
+		while (i.hasNext()) {
+		    Particle p = i.next();
+		    // Do something
+			p.update();
+			if (p.shouldDie()){
+				i.remove();
+			}
+		}
+	}
+	void draw (){
+		for (Particle p : particles) {
+			p.draw();
+		}
+	}
+	void addParticle (Particle p) {
+		particles.add(p);
 	}
 };

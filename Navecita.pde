@@ -12,3 +12,7 @@ void draw(){
 	background(255);
 	nave.draw();
 }
+
+void mousePressed () {
+	nave.mousePressed();
+}
