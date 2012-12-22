@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.ArrayList; este viene por defecto
+import java.util.Iterator; //este debería venir por defecto :C
 
 class Particle {
 	PVector p;
